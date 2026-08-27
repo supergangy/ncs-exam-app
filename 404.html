@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6366F1">
+<title>NCS PASS 로 옮겼습니다</title>
+<link rel="canonical" href="https://supergangy.github.io/ncs-pass-app/">
+<meta http-equiv="refresh" content="3;url=https://supergangy.github.io/ncs-pass-app/">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<style>
+  :root {
+    --ink: #0f172a; --mute: #475569; --faint: #94a3b8;
+    --line: #e2e8f0; --bg: #f8fafc; --surf: #fff; --acc: #6366f1; --acc-bg: #eef2ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8eaee; --mute: #a2a9b6; --faint: #767e8c;
+      --line: #2c313a; --bg: #14161a; --surf: #1d2026; --acc: #818cf8; --acc-bg: #252a4a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem;
+    background: var(--bg); color: var(--ink);
+    font: 400 15px/1.65 "Pretendard", -apple-system, "맑은 고딕", "Malgun Gothic", sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  .card {
+    max-width: 30rem; width: 100%; text-align: center;
+    background: var(--surf); border: 1px solid var(--line); border-radius: 16px;
+    padding: 2.5rem 1.75rem;
+    box-shadow: 0 1px 2px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.07);
+  }
+  img { width: 76px; height: 76px; border-radius: 17px; }
+  h1 { font-size: 1.4rem; margin: 1.1rem 0 .5rem; letter-spacing: -.4px; }
+  .was { color: var(--faint); font-size: .9rem; }
+  p { color: var(--mute); margin: .9rem 0 0; }
+  a.go {
+    display: inline-block; margin-top: 1.5rem; padding: .8rem 1.5rem;
+    background: var(--acc); color: #fff; text-decoration: none;
+    border-radius: 10px; font-weight: 700;
+  }
+  a.go:hover { filter: brightness(1.08); }
+  .url {
+    margin-top: 1.25rem; padding: .6rem .8rem; background: var(--acc-bg);
+    border-radius: 8px; font-size: .82rem; color: var(--mute); word-break: break-all;
+  }
+  .note { margin-top: 1.25rem; font-size: .82rem; color: var(--faint); }
+</style>
+</head>
+<body>
+<div class="card">
+  <img src="icon-192.png" alt="NCS PASS">
+  <h1>NCS PASS 로 옮겼습니다</h1>
+  <div class="was">이전 이름 · NCS 기출은행</div>
+  <p>잠시 뒤 새 주소로 넘어갑니다.<br>넘어가지 않으면 아래를 눌러 주세요.</p>
+  <a class="go" href="https://supergangy.github.io/ncs-pass-app/">새 주소로 가기</a>
+  <div class="url">supergangy.github.io/ncs-pass-app/</div>
+  <div class="note">풀던 기록은 그대로 남아 있습니다.</div>
+</div>
+<script>
+  // 남아 있는 옛 서비스 워커와 캐시를 치운다 — 안 치우면 옛 화면이 계속 나온다
+  (async () => {
+    try {
+      if ('caches' in window) {
+        for (const k of await caches.keys()) await caches.delete(k);
+      }
+      if ('serviceWorker' in navigator) {
+        for (const r of await navigator.serviceWorker.getRegistrations()) await r.unregister();
+      }
+    } catch (e) { /* 지우지 못해도 아래 이동은 한다 */ }
+    setTimeout(() => location.replace('https://supergangy.github.io/ncs-pass-app/'), 1200);
+  })();
+</script>
+</body>
+</html>
